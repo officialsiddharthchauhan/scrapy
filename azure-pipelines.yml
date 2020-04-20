@@ -8,12 +8,6 @@ pool:
   vmImage: 'windows-2019'
 strategy:
   matrix:
-    Python35:
-      python.version: '3.5'
-      TOXENV: py35
-    Python36:
-      python.version: '3.6'
-      TOXENV: py36
     Python37:
       python.version: '3.7'
       TOXENV: py37
