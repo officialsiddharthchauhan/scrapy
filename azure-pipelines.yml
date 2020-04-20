@@ -20,5 +20,5 @@ steps:
 
 - script: |
     pip install -U tox twine wheel codecov
-    tox
+    tox -e py -- tests/test_crawler.py
   displayName: 'Run test suite'

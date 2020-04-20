@@ -309,12 +309,8 @@ class CrawlerProcessSubprocess(unittest.TestCase):
 
     def test_ipv6_alternative_name_resolver(self):
         log = self.run_script('alternative_name_resolver.py')
-        print("*" * 100)
-        print(log)
-        print("*" * 100)
         self.assertIn('Spider closed (finished)', log)
-        self.assertRegex(log, r"twisted\.internet\.error\.(?:ConnectionRefusedError|ConnectError)")
-        self.assertRegex(log, r"'downloader/exception_type_count/twisted\.internet\.error\.(?:ConnectionRefusedError|ConnectError)': 1,")
+        self.assertNotIn("twisted.internet.error.DNSLookupError", log)
 
     def test_reactor_select(self):
         log = self.run_script("twisted_reactor_select.py")
